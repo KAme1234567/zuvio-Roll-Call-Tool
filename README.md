@@ -22,7 +22,8 @@
    pip install -r requirements.txt
    ```
 
-2. **執行**：
+### 2. **執行**：
+至main資料夾執行主程式。
    ```bash
     python main.py
    ```
