@@ -1,0 +1,68 @@
+<div class="i-m-p-c-a-course-list">
+                
+                    <div class="i-m-p-c-a-c-l-course-box" data-course-id="399868" onclick="GAFA_irsListClick(399868)">
+                        <div class="i-m-p-c-a-c-l-c-b-green-block"></div>
+                        <div class="i-m-p-c-a-c-l-c-b-top">
+                            <div class="i-m-p-c-a-c-l-c-b-t-course-name" data-course-id="399868">🔥大學生問卷調查🔥（目前無題目）</div>
+                            
+                        </div>
+                        <div class="i-m-p-c-a-c-l-c-b-bottom">
+                            <div class="i-m-p-c-a-c-l-c-b-b-semester-teacher">Zuvio 官方活動</div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                
+                    <div class="i-m-p-c-a-c-l-course-box" data-course-id="1344000" onclick="GAFA_irsListClick(1344000)">
+                        <div class="i-m-p-c-a-c-l-c-b-green-block"></div>
+                        <div class="i-m-p-c-a-c-l-c-b-top">
+                            <div class="i-m-p-c-a-c-l-c-b-t-course-name" data-course-id="1344000">1225_1132_人因工程心理基礎(四工三甲)</div>
+                            
+                                
+                                    <div class="i-m-p-c-a-c-l-c-b-t-star" onclick="irs_pinCourse(event, 1344000, false)"></div>
+                                
+                            
+                        </div>
+                        <div class="i-m-p-c-a-c-l-c-b-bottom">
+                            <div class="i-m-p-c-a-c-l-c-b-b-semester-teacher">113-2&nbsp;&nbsp;&nbsp;王釗鴻</div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                
+                    <div class="i-m-p-c-a-c-l-course-box" data-course-id="1314444" onclick="GAFA_irsListClick(1314444)">
+                        <div class="i-m-p-c-a-c-l-c-b-green-block"></div>
+                        <div class="i-m-p-c-a-c-l-c-b-top">
+                            <div class="i-m-p-c-a-c-l-c-b-t-course-name" data-course-id="1314444">4225_1132_博雅(社會)飲食安全與保健(博雅四技二甲(旗)</div>
+                            
+                                
+                                    <div class="i-m-p-c-a-c-l-c-b-t-star" onclick="irs_pinCourse(event, 1314444, false)"></div>
+                                
+                            
+                        </div>
+                        <div class="i-m-p-c-a-c-l-c-b-bottom">
+                            <div class="i-m-p-c-a-c-l-c-b-b-semester-teacher">113-2&nbsp;&nbsp;&nbsp;蔡瑞琪</div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                
+                    <div class="i-m-p-c-a-c-l-course-box" data-course-id="1314341" onclick="GAFA_irsListClick(1314341)">
+                        <div class="i-m-p-c-a-c-l-c-b-green-block"></div>
+                        <div class="i-m-p-c-a-c-l-c-b-top">
+                            <div class="i-m-p-c-a-c-l-c-b-t-course-name" data-course-id="1314341">3004_1132_海商法(日四技海資一甲)</div>
+                            
+                                
+                                    <div class="i-m-p-c-a-c-l-c-b-t-star" onclick="irs_pinCourse(event, 1314341, false)"></div>
+                                
+                            
+                        </div>
+                        <div class="i-m-p-c-a-c-l-c-b-bottom">
+                            <div class="i-m-p-c-a-c-l-c-b-b-semester-teacher">113-2&nbsp;&nbsp;&nbsp;蔡嘉昌</div>
+                            
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                
+                
+</div>
