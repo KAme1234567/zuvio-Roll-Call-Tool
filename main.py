@@ -5,8 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import pandas as pd
-import threading
-import keyboard  # 監聽 C 鍵退出
+
 
 # 設定 CSV 檔案的路徑
 csv_file = "Account_Information.csv"
@@ -23,8 +22,9 @@ def show_accounts():
     if df.empty:
         print("尚未有帳號")
     else:
-        for i, row in df.head(5).iterrows():
-            print(f"{i+1}. {row['Name']} - {row['Email']}")
+        for i, row in df.head(6).iterrows():
+            if i != 0:
+                print(f"{i}. {row['Name']} - {row['Email']}")
 
 # 新增帳號
 def add_account():
@@ -50,38 +50,27 @@ def delete_account():
     except ValueError:
         print("無效的輸入！")
 
+
 # 點名自動化
 def auto_rollcall(driver):
-    global exit_flag  # 用於監聽 `C` 鍵退出
-    exit_flag = False
-
-    # 監聽 `C` 鍵來退出
-    def listen_for_exit():
-        global exit_flag
-        while True:
-            if keyboard.is_pressed("c"):
-                exit_flag = True
-                print("\n手動退出點名等待...")
-                break
-
-    # 啟動監聽 `C` 鍵的線程
-    exit_thread = threading.Thread(target=listen_for_exit, daemon=True)
-    exit_thread.start()
-
-    while not exit_flag:
+    while True:  # 無限等待直到成功點名
         try:
-            # 檢查按鈕是否存在
-            button = WebDriverWait(driver, 5).until(
-                EC.presence_of_element_located((By.CLASS_NAME, "i-r-f-b-button"))
+            print("🔍 正在檢查點名按鈕...")
+            
+            # 嘗試找到 "我到了" 按鈕（最多等 1 秒）
+            button = WebDriverWait(driver, 1).until(
+                EC.presence_of_element_located((By.ID, "submit-make-rollcall"))
             )
-            if "點名" in button.text:
+            
+            if "我到了" in button.text:
                 button.click()
-                print("已成功點名！")
-                break  # 點名成功後結束迴圈
+                print("✅ 已成功點名！")
+                return  # 成功後結束函數
+            
         except:
-            print("尚未到點名時間，重新整理頁面...")
+            print("❌ 尚未到點名時間，重新整理頁面...")
             driver.refresh()  # 重新整理頁面
-            time.sleep(4)  # 每 4 秒檢查一次
+            time.sleep(1)  # 等待 1 秒再檢查
 
 # 自動登入
 def auto_login(username, password):
@@ -131,7 +120,7 @@ def auto_login(username, password):
                     driver.get(rollcall_url)
                     print(f"正在進入點名頁面: {rollcall_url}")
 
-                    # 開始點名
+                    # Start calling the roll
                     auto_rollcall(driver)
                 else:
                     print("無效選擇！")
@@ -141,6 +130,9 @@ def auto_login(username, password):
             print("目前沒有可選課程")
     finally:
         driver.quit()  # 關閉瀏覽器
+
+
+
 
 # 主程式
 def main():
@@ -162,9 +154,10 @@ def main():
             else:
                 show_accounts()
                 try:
-                    account_index = int(input("請選擇登入帳號編號 (1-5): ")) - 1
+                    account_index = int(input("請選擇登入帳號編號 (1-5): "))
                     if 0 <= account_index < len(df):
                         selected_account = df.iloc[account_index]
+                        print("Selected_account")
                         print(f"登入帳號: {selected_account['Name']} ({selected_account['Email']})")
                         auto_login(selected_account['Email'], selected_account['Password'])
                     else:
